@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
-from src.brain import *
-from src.options import *
+from Roguelike_TDD.src.brain import *
+from Roguelike_TDD.src.options import *
 
 
 class BrainTetCase(unittest.TestCase):
