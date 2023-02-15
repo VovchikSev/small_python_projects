@@ -1,8 +1,6 @@
-import Player
-from const import MESSAGES
-from Deck import Deck
-
-import random
+from Black_Jack.example.bj_itvdn_youtube.src.player import *
+from Black_Jack.example.bj_itvdn_youtube.src.const import MESSAGES
+from Black_Jack.example.bj_itvdn_youtube.src.deck import Deck
 
 
 class Game:
@@ -13,15 +11,14 @@ class Game:
         self.dealer = None
         self.all_players_count = 1
         self.deck = Deck()
-        
     
     @staticmethod
     def _ask_starting(message):
         while True:
-            choise = input(message)
-            if choise == "n":
+            choice = input(message)
+            if choice == "n":
                 return False
-            elif choise == "y":
+            elif choice == "y":
                 return True
     
     def start_game(self):
@@ -29,9 +26,9 @@ class Game:
         if not self._ask_starting(message=message):
             exit(1)
         
-        bots_count = int(input("hello, write bots number "))
+        bots_count = int(input("hello, write bots count "))
         self.all_players_count = bots_count + 1
-        for i in range(bots_count):
-            b = Player.Bot(position=1)
+        for _ in range(bots_count):
+            b = Bot(position=1)
             self.players.append(b)
-        self.player = Player.Player(po)
+        self.player = Player(b)

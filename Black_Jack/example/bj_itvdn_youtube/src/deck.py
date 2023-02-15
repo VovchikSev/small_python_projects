@@ -1,7 +1,7 @@
 from itertools import product
 from random import shuffle
 
-from const import PRINTED, SUITS, RANKS
+from Black_Jack.example.bj_itvdn_youtube.src.const import *
 
 
 class Card:
@@ -20,19 +20,21 @@ class Card:
 class Deck:
     
     def __init__(self):
-        self.cards = self._generate_deck()
+        # переделать на гнерацию с
+        self.cards: list[Card] = self._generate_deck()
         shuffle(self.cards)
     
-    def _generate_deck(self):
+    def _generate_deck(self) -> list[Card]:
         cards = []
-        for suit, rank in product(SUITS, RANKS):
+        # функцмя product создаеь список из двух аереданных ему
+        for suit, rank in product(COLOR_SUITS, RANKS):
             if rank == 'ace':
                 points = 11
             elif rank.isdigit():
                 points = int(rank)
             else:
                 points = 10
-            picture = PRINTED.get(rank)
+            picture = PRINTED.get(rank) # отказаться от переменной,
             c = Card(suit=suit, rank=rank, points=points, picture=picture)
             cards.append(c)
         return cards
@@ -42,4 +44,3 @@ class Deck:
     
     def __len__(self):
         return len(self.cards)
-    

@@ -1,7 +1,6 @@
 import abc
 from abc import ABC
-
-from Deck import Deck
+from Black_Jack.example.bj_itvdn_youtube.src.deck import Deck
 
 
 class AbstractPlayer(abc.ABC):
