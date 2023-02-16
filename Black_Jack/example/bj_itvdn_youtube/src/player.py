@@ -3,12 +3,12 @@ from abc import ABC
 from Black_Jack.example.bj_itvdn_youtube.src.deck import Deck
 
 
-class AbstractPlayer(abc.ABC):
+class AbstractPlayer: #(abc.ABC):
     def __int__(self, position):
         self.cards = []
         self.position = position
     
-    @abc.abstractmethod
+    # @abc.abstractmethod
     def ask_card(self, deck):
         card = deck.get_card()
         self.cards.append(card)
@@ -16,9 +16,9 @@ class AbstractPlayer(abc.ABC):
 
 
 class Player(AbstractPlayer):
-    
-    def ask_card(self, deck):
-        pass
+    pass
+    # def __int__(self, position):
+    #     pass
 
 
 # ToDo: А дилер нужен как таковой?
@@ -26,6 +26,7 @@ class Player(AbstractPlayer):
 #     pass
 
 
-class Bot(AbstractPlayer, ABC):
-    def __int__(self, position):
-        pass
+class Bot(AbstractPlayer):
+    pass
+    # def __int__(self, position):
+    #     pass

@@ -1,6 +1,7 @@
 from Black_Jack.example.bj_itvdn_youtube.src.player import *
 from Black_Jack.example.bj_itvdn_youtube.src.const import MESSAGES
 from Black_Jack.example.bj_itvdn_youtube.src.deck import Deck
+import random
 
 
 class Game:
@@ -8,7 +9,7 @@ class Game:
     def __init__(self):
         self.players = []
         self.player = None
-        self.dealer = None
+        # self.dealer = None
         self.all_players_count = 1
         self.deck = Deck()
     
@@ -28,7 +29,11 @@ class Game:
         
         bots_count = int(input("hello, write bots count "))
         self.all_players_count = bots_count + 1
+        pos_list = [i for i in range(0, self.all_players_count)]
+        random.shuffle(pos_list)
         for _ in range(bots_count):
-            b = Bot(position=1)
+            pos = pos_list.pop()
+            b = Bot(pos)
             self.players.append(b)
-        self.player = Player(b)
+            print(b, " is created")
+        self.player = Player(position=bots_count + 1)
